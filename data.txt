@@ -1,0 +1,33 @@
+await RoadUser.insertMany([
+  { userId: "USER003", username: "alicew", name: "Alice Walker", email: "alice.walker@example.com", phone: "9123456789", password: "password123" },
+  { userId: "USER004", username: "bobm", name: "Bob Martin", email: "bob.martin@example.com", phone: "9234567890", password: "password123" },
+  { userId: "USER005", username: "charliet", name: "Charlie Thomas", email: "charlie.thomas@example.com", phone: "9345678901", password: "password123" },
+  { userId: "USER006", username: "dianel", name: "Diane Lee", email: "diane.lee@example.com", phone: "9456789012", password: "password123" }
+]);
+
+await Vehicle.insertMany([
+  { vehicleId: "VEH001", ownerId: "USER003", licensePlate: "ABC1234" },
+  { vehicleId: "VEH002", ownerId: "USER004", licensePlate: "XYZ5678" },
+  { vehicleId: "VEH003", ownerId: "USER005", licensePlate: "LMN8901" },
+  { vehicleId: "VEH004", ownerId: "USER006", licensePlate: "PQR2345" }
+]);
+
+await TrafficViolation.insertMany([
+  { violationId: "V003", userId: "USER003", type: "Running Red Light", fineAmount: 200, location: "5th Avenue", date: new Date('2025-05-20'), status: "Unpaid" },
+  { violationId: "V004", userId: "USER004", type: "No Seatbelt", fineAmount: 50, location: "Elm Street", date: new Date('2025-05-21'), status: "Unpaid" },
+  { violationId: "V005", userId: "USER005", type: "Speeding", fineAmount: 150, location: "Highway 101", date: new Date('2025-05-22'), status: "Paid" },
+  { violationId: "V006", userId: "USER006", type: "Illegal Parking", fineAmount: 75, location: "Downtown", date: new Date('2025-05-23'), status: "Unpaid" }
+]);
+
+await Fine.insertMany([
+  { fineId: "V003", userId: "USER003", amount: 200, status: "Pending" },
+  { fineId: "V004", userId: "USER004", amount: 50, status: "Pending" },
+  { fineId: "V005", userId: "USER005", amount: 150, status: "Paid" },
+  { fineId: "V006", userId: "USER006", amount: 75, status: "Pending" }
+]);
+
+await AccidentReport.insertMany([
+  { reportId: "ACC1001", userId: "USER003", location: "Main Street & 7th Ave", severity: "Moderate", timestamp: new Date('2025-05-20T10:30:00Z') },
+  { reportId: "ACC1002", userId: "USER004", location: "Central Park Road", severity: "Severe", timestamp: new Date('2025-05-21T14:15:00Z') },
+  { reportId: "ACC1003", userId: "USER005", location: "Broadway & 10th St", severity: "Minor", timestamp: new Date('2025-05-22T08:45:00Z') }
+]);
